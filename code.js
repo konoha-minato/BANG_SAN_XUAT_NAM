@@ -12,14 +12,6 @@
   function init() {
     var ar,i,j,row,thang;
     var table = document.getElementById("bang_chinh");
-    thang= (new Date()).getMonth()+1
-    if (thang >=1 && thang<4){thang=1}
-    if (thang >=4 && thang<8){thang=4}
-    if (thang >=8 && thang<11){thang=7}
-    if (thang >=11){thang=10}
-    for (i=1; i<4 ;i++){
-      document.getElementById("T"+i).innerHTML='THÁNG '+ (thang+i-1);
-    }
     fetch(base)
       .then(res => res.text())
       .then(rep => {
@@ -27,7 +19,17 @@
         // const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
         rep=rep.replace(/","/g,'|').replace(/"/g,'|')
         ar=rep.split("\n").map((n)=>{return n.split("|")})
-        console.log(ar)
+        // console.log(ar)
+        thang= Number(ar[0][6].replace('KẾT QUẢ THỰC HIỆN THÁNG ','').replace(' S.LƯỢNG','').trim())
+        if (thang ==1){thang=1}
+        if (thang ==4){thang=4}
+        if (thang ==7){thang=7}
+        if (thang ==10){thang=10}
+        // console.log(thang)
+        
+        for (i=1; i<4 ;i++){
+          document.getElementById("T"+i).innerHTML='THÁNG '+ (thang+i-1);
+        }
         var cell='<td style="text-align: center;">value</td>'
         var line='<tr style="text-align: center;font-size: 1em;">cell</tr>'
         var row_data=''
