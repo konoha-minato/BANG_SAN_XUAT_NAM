@@ -26,7 +26,7 @@ const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:
 
         // console.log(ar)
         // thang= Number(ar[0][6].replace('KẾT QUẢ THỰC HIỆN THÁNG ','').replace(' S.LƯỢNG','').trim())
-       // console.log(thang)
+        // console.log(thang)
         // for (i=1; i<4 ;i++){
         //   document.getElementById("T"+i).innerHTML='THÁNG '+ (thang+i-1);
         // }
@@ -46,10 +46,10 @@ const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:
         }
       })
   }
-function tang(){
-  const item = document.querySelectorAll('.font_row');
-  var size=item.style.font-size;
+// function tang(){
+//   const item = document.querySelectorAll('.font_row');
+//   var size=item.style.font-size;
   
-  item.forEach(vl => {
-    vl.style.font-size ='0.5em';
-  });}
+//   item.forEach(vl => {
+//     vl.style.font-size ='0.5em';
+//   });}
