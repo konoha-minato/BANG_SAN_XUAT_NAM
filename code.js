@@ -1,11 +1,7 @@
 const sheetId = '1GOSlI2StWgksh4xyB3_ppPtFtepYJZeCZkA9asNjOx8';
-// const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
-const sheetName = 'SX 2024';
+const sheetName = 'SX NAM';
 const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
-
-  // const query = encodeURIComponent('Select *')
-  // const url = `${base}&sheet=${sheetName}&tq=${query}`
-  const data = []
+const data = []
   document.addEventListener('DOMContentLoaded', init)
   // const output = document.querySelector('.output')
   
@@ -15,8 +11,6 @@ const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:
     fetch(base)
       .then(res => res.text())
       .then(rep => {
-        //Remove additional text and extract only JSON:
-        // const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
         rep=rep.replace(/","/g,'|').replace(/"/g,'|')
         ar=rep.split("\n").map((n)=>{return n.split("|")})
         ar[6][5]= '13,26±0,5'
@@ -27,29 +21,29 @@ const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:
         var cell='<td style="text-align: center;padding-top: 10px;padding-bottom: 10px;">value</td>'
         var line='<tr class=".font_row" style="text-align:center;font-weight: bolder;">cell</tr>'
         var row_data=''
-        for (i=1;i<ar.length;i++){
-          // console.log(ar[i])
-          row = table.insertRow(-1);
-          for(j=1;j<22;j++){
-            if(j>=6 && j<=11){continue;}
-            if (j!=2){row_data+=cell.replace('value',ar[i][j])}
-            else{row_data+=cell.replace('value',ar[i][j]).replace('center','left')}
-          }
-          row.innerHTML=line.replace('cell',row_data)
-          row_data=''      
-        }
-
-        //MODE
         // for (i=1;i<ar.length;i++){
+        //   // console.log(ar[i])
         //   row = table.insertRow(-1);
-        //   for(j=1;j<40;j++){
-        //     if(j>5 && j<30){continue;}
+        //   for(j=1;j<22;j++){
+        //     if(j>=6 && j<=11){continue;}
         //     if (j!=2){row_data+=cell.replace('value',ar[i][j])}
         //     else{row_data+=cell.replace('value',ar[i][j]).replace('center','left')}
         //   }
         //   row.innerHTML=line.replace('cell',row_data)
         //   row_data=''      
         // }
+
+        //MODE
+        for (i=1;i<ar.length;i++){
+          row = table.insertRow(-1);
+          for(j=1;j<40;j++){
+            if(j>5 && j<30){continue;}
+            if (j!=2){row_data+=cell.replace('value',ar[i][j])}
+            else{row_data+=cell.replace('value',ar[i][j]).replace('center','left')}
+          }
+          row.innerHTML=line.replace('cell',row_data)
+          row_data=''      
+        }
 
       })
   }
