@@ -6,8 +6,9 @@ const data = []
   // const output = document.querySelector('.output')
   
   function init() {
-    var ar,i,j,row,thang;
+    var ar,i,j,row,head;
     var table = document.getElementById("bang_chinh");
+    head = document.getElementById("head");
     fetch(base)
       .then(res => res.text())
       .then(rep => {
@@ -17,12 +18,12 @@ const data = []
         ar[8][5]='≤ 7,0'
         ar[9][5]='≥ 25,64'
         ar[10][5]='≥ 58,98'
-
+        head.innerHTML=ar[0][25].replace(" MỨC","")
         var cell='<td style="text-align: center;padding-top: 10px;padding-bottom: 10px;">value</td>'
         var line='<tr class=".font_row" style="text-align:center;font-weight: bolder;">cell</tr>'
         var row_data=''
+
         // for (i=1;i<ar.length;i++){
-        //   // console.log(ar[i])
         //   row = table.insertRow(-1);
         //   for(j=1;j<22;j++){
         //     if(j>=6 && j<=11){continue;}
@@ -46,6 +47,7 @@ const data = []
         }
 
       })
+
   }
 // function tang(){
 //   const item = document.querySelectorAll('.font_row');
