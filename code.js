@@ -19,7 +19,7 @@ const data = []
         ar[9][5]='≥ 25,64'
         ar[10][5]='≥ 58,98'
         head.innerHTML=ar[0][25].replace(" MỨC","")
-        var cell='<td style="text-align: center;padding-top: 10px;padding-bottom: 10px;">value</td>'
+        var cell='<td style="text-align: center;padding-top: 5.5px;padding-bottom: 5.5px;">value</td>'
         var line='<tr class=".font_row" style="text-align:center;font-weight: bolder;">cell</tr>'
         var row_data=''
 
